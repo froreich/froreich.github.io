@@ -28,8 +28,41 @@
         width: 100%;
         bottom: 0;
       }
+
       #email {
         display: inline;
+      }
+
+      .button-radio {
+        display: none;
+      }
+
+      .button-label {
+        border: none;
+        cursor: pointer;
+        display: none;
+        float: right;
+        user-select: none;
+      }
+
+      .hidden-content {
+        display: none;
+      }
+
+      #englishbutton:not(:checked) ~ #englishlabel {
+        display: inline-block;
+      }
+
+      #germanbutton:not(:checked) ~ #germanlabel {
+        display: inline-block;
+      }
+
+      #englishbutton:checked ~ #english {
+        display: block;
+      }
+
+      #germanbutton:checked ~ #german {
+        display: block;
       }
     </style>
   </head>
@@ -37,7 +70,20 @@
     <header>
       <h1>froreich.dev</h1>
     </header>
-    <div class="container">
+
+    <input
+      type="radio"
+      id="englishbutton"
+      name="group"
+      class="button-radio"
+      checked
+    />
+    <label id="englishlabel" for="englishbutton" class="button-label">🇺🇸</label>
+
+    <input type="radio" id="germanbutton" name="group" class="button-radio" />
+    <label id="germanlabel" for="germanbutton" class="button-label">🇩🇪</label>
+
+    <div id="english" class="container hidden-content">
       <section id="about">
         <h2>About Me</h2>
         <p>
@@ -71,9 +117,47 @@
           ></object>
         </p>
       </section>
-      <footer>
-        <p>&copy; 2025 froreich.dev&mdash;Julius von Froreich</p>
-      </footer>
     </div>
+    <div id="german" class="container hidden-content">
+      <section id="about">
+        <h2>Über mich</h2>
+        <p>
+          Mein Name ist Julius von Froreich und ich biete Unternehmen
+          <span style="white-space: nowrap">IT-Beratungsleistungen</span> an.
+          Während meiner Zeit bei Unternehmen wie
+          <a href="https://klarna.com">Klarna</a> und
+          <a href="https://stripe.com">Stripe</a> habe ich mein Verständnis,
+          insbesondere für komplexe Webanwendungen und das Internet im
+          Allgemeinen, vertieft.
+        </p>
+        <p>
+          Heutzutage biete ich Unternehmen meine Expertise an, um ihre
+          Webanwendungen optimal zu konzipieren und implementieren. Darüber
+          hinaus bieten ich Dienstleistungen wie Serveradministration und
+          Netzwerkoptimierung an.
+        </p>
+
+        <p>Wenn ich nicht arbeite, lese, zeichne oder n&auml;he ich.</p>
+      </section>
+      <section id="contact">
+        <h2>Kontakt</h2>
+        <p>
+          Wenn Sie mich kontaktieren möchten, zögern Sie bitte nicht. Ich freue
+          mich immer über ein informelles Gespräch darüber, wie ich Ihnen und
+          Ihrem Unternehmen helfen kann.
+        </p>
+        <p>
+          Am besten geht es per E-Mail:
+          <object
+            id="email"
+            data="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgbGFuZz0iZW4tVVMiCiAgd2lkdGg9IjEzMCIgaGVpZ2h0PSIyMCI+CgogIDxhIGhyZWY9Im1haWx0bzpoZWxsb0Bmcm9yZWljaC5kZXYiIGFyaWEtbGFiZWw9ImhlbGxvQGZyb3JlaWNoLmRldiI+CiAgICA8dGV4dCB4PSIzIiB5PSIxNSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+aGVsbG9AZnJvcmVpY2guZGV2PC90ZXh0PgogIDwvYT4KPC9zdmc+"
+            type="image/svg+xml"
+          ></object>
+        </p>
+      </section>
+    </div>
+    <footer>
+      <p>&copy; 2025 froreich.dev&mdash;Julius von Froreich</p>
+    </footer>
   </body>
 </html>
